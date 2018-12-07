@@ -1,3 +1,43 @@
-<p>
-  costcentre works!
-</p>
+
+<div class="container-fluid">
+  
+  <div class="container">
+      <div>
+        <h5 style="margin-top:10px">Cost Centres</h5>
+        <mat-table #table [dataSource]="datasource1" class="mat-elevation-z8">
+          <ng-container matColumnDef="code">
+             <mat-header-cell *matHeaderCellDef>Code</mat-header-cell>
+             <mat-cell *matCellDef="let cc" (click)="viewCC(cc.code)"><a href="" [routerLink]="['../costcentredetail', cc.code]">{{cc.code}}</a></mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="description">
+              <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+              <mat-cell *matCellDef="let cc">{{cc.description}}
+                  
+              </mat-cell>
+           </ng-container>
+
+           <ng-container matColumnDef="parentcode">
+              <mat-header-cell *matHeaderCellDef>Parent</mat-header-cell>
+              
+              <mat-cell *matCellDef="let cc">{{cc.parentcode}}</mat-cell>
+           </ng-container>
+           
+           <ng-container matColumnDef="headeronly">
+              <mat-header-cell *matHeaderCellDef>Header</mat-header-cell>
+              
+              <mat-cell *matCellDef="let cc"><mat-checkbox [checked]="cc.headeronly"></mat-checkbox></mat-cell>//-->
+           </ng-container>
+
+           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>           
+
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[5,10,20,50]"
+            [pageSize]="10"
+            [length]="ctrCostCtr">
+        </mat-paginator>        
+      </div>
+  </div>  
+</div>

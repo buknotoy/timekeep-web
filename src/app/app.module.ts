@@ -9,17 +9,32 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CostcentreComponent } from './costcentre/costcentre.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
+  MatSortModule, MatTableModule,MatCheckboxModule} from "@angular/material";
+
+import { HttpClientModule } from '@angular/common/http';
+import { CostcentredetailComponent } from './costcentredetail/costcentredetail.component';  
+
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    CostcentreComponent
+    CostcentreComponent,
+    CostcentredetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatCheckboxModule,
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
